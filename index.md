@@ -6,7 +6,7 @@ You should comment out all portions of your portfolio that you have not complete
 
 <!--- This is an HTML comment in Markdown -->
 <!--- Anything between these symbols will not render on the published site -->
--->
+The Sonar Visualizer is a two-piece project that consists of a sensor package and computer code transferring data through serial communication. The ultrasonic sensor is mounted on a servo that turns it left and right to cover a larger area, and the code on the computer uses data from the sensor package to create a visualizer for the scan area.
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
