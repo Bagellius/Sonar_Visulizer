@@ -47,12 +47,6 @@ My project is the Sonar Visualizer with the HC-SR04 Ultrasonic Sensor. This proj
 
 Next, I would like to add user inputs to control some aspect of the sensor, like the range, sweep range, or the angle of the center point. I also want to design and 3D print a case for the sensor so everything is contained in a compact package. Another possible modification would be increasing the maximum range of the sensor to read a larger area.
 
-For your first milestone, describe what your project is and how you plan to build it. You can include:
-- An explanation about the different components of your project and how they will all integrate together
-- Technical progress you've made so far
-- Challenges you're facing and solving in your future milestones
-- What your plan is to complete your project
-
 # Schematics 
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
 
