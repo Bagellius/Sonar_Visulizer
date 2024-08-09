@@ -20,12 +20,9 @@ The Sonar Visualizer is a two-piece project that consists of a sensor package an
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/i76NpsIv7Yo?si=w8wpN9gurx0XRQlu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-For your final milestone, explain the outcome of your project. Key details to include are:
-- What you've accomplished since your previous milestone
-- What your biggest challenges and triumphs were at BSE
-- A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE
+My final milestone consists of two modifications: range control using a potentiometer and an enclosure modeled using Fusion360. The potentiometer I used was a B103 potentiometer, and by printing out the values received from the potentiometer, I found that the values ranged from 1 to 1024. I used the values of the potentiometer as a multiplier for the timeout duration of the ultrasonic sensor, which controls the max distance the ultrasonic sensor looks at before defaulting to a value of 0. While the range of the potentiometer is large enough to give more than enough resolution for this project, I also realized that this range so large that I ended up having troubles with the max range of the ultrasonic sensor being too high. Furthermore, I was finding that the sensor would not detect anything in the lower half of the potentiometer's input range. After some testing, I determined that the ultrasonic sensor has a minimum timeout value of around 2000 microseconds, below which it refuses to work. In the end, I started out the timeout walue with 1000 microseconds and added the value received from the potentiometer multiplied 1.85 such that the maximum timeout duration would result in a distance of 50 cm. I am disappointed in the results of this modification, however the adjustments of the range would be finer if the overall maximum range were greater.
 
+I was not able to finish modelling the enclosure for the sensor package on fusion360, however I did achieve significant progress on the modification. I decided on a simple square box design because I didn't need it to be very flashy. I made a raised section of the case to support the MCU in a rear corner of the case, and I made a mounting hole for the servo in the center of the case. I wanted toi include a bearing to support the servo shaft that would need to be extended to reach outside ofthe case, so I made a larger hole in the lid. I needed a way to make sure the servo shaft does not fall out, so I used the flange of the bearing to my advantage. I positioned the bearing so that the flange is on the inside of the case, and I created a flange on the bottom of the shaft, underneath the bearing. The axle flange holds the axle in place, and the bearing flange holds the bearing in place, and the lid secures everything. Because the lid was supporting the shaft, I added multiple M3 screws to hold it to the case. I have not completed the ultrasonic sensor mount, but that is definitely planned in the future.
 
 <!--
 # Second Milestone
@@ -100,7 +97,7 @@ void getDistanceAndSend2Serial(int angle) {
   //float timeout = 3.92 * (float)range;
   //Serial.print(range);
   //Serial.print("/n");
-  duration = pulseIn(ECHO_PIN, HIGH, 1500 * range / 325);
+  duration = pulseIn(ECHO_PIN, HIGH, 1000 + range * 1.85);
   long cm = duration / 58;
   Serial.print(angle, DEC);
   Serial.print(",");
